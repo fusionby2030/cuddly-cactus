@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block body %}
+<p>image classified:</p>
+{% for entry in data %}
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;{{ entry['label'] }}: probability {{ entry['probability'] }}</p>
+{% endfor %}
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

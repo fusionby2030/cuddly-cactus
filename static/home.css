@@ -1,0 +1,15 @@
+body {
+	height:100vh;
+	font-family: 'Open Sans', sans-serif;
+	background-color: blue;
+}
+
+.container {
+  height: 100%;
+  max-width: none;
+  margin:0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: blue;
+}
