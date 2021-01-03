@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from NN_sache.image_class import *
 from keras.applications import ResNet50
 
-app = Flask(__name__)
+application = Flask(__name__)
 model = None
 
 
@@ -18,32 +18,32 @@ def load_model():
 
 
 # Catch type errors when submitting something other than an image
-@app.errorhandler(TypeError)
+@application.errorhandler(TypeError)
 def internal_error(error):
     return render_template('500.html'), 500
 
 
-@app.errorhandler(404)
+@application.errorhandler(404)
 def internal_error(error):
     return render_template('404.html'), 404
 
 
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('home.html')
 
 
-@app.route('/human_error')
+@application.route('/human_error')
 def musik():
     return render_template('human_error.html')
 
 
-@app.route('/classify')
+@application.route('/classify')
 def classify():
     return render_template('classify.html')
 
 
-@app.route("/predict", methods=["POST"])
+@application.route("/predict", methods=["POST"])
 def predict():
     # initialize the data dictionary that will be returned from the
     # view
@@ -84,4 +84,4 @@ def predict():
 
 if __name__ == '__main__':
     load_model()
-    app.run(debug=True)
+    application.run(debug=True)
